@@ -10,4 +10,6 @@ public class SistemaContext : DbContext
     }
 
     public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<Conta> Contas { get; set; }
+    public DbSet<Movimentacoes> Movimentacoes { get; set; }
 }

@@ -4,15 +4,22 @@ namespace Sistema_BancarioApi.Models;
 
 public class Conta
 {
+    public Conta()
+    {
+        Saldo = 200;
+    }
+
     [Key]
     [Required]
     public int Id { get; set; }
     [Required]
-    [MaxLength(4)]
+    [StringLength(4)]
     public string NumeroConta { get; set; }
     [Required]
-    [MaxLength(1)]
+    [StringLength(1)]
     public string DigitoVerificador { get; set; }
+    public double Saldo { get; set; }
     [Required]
     public int ClienteId { get; set; }
+    public virtual Cliente Cliente { get; set; }
 }

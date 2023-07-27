@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Sistema_BancarioApi.Data;
 using Sistema_BancarioApi.Data.Dtos;
+using Sistema_BancarioApi.Models;
 
 namespace Sistema_BancarioApi.Controllers;
 
@@ -22,5 +23,17 @@ public class ClienteController : ControllerBase
     public IEnumerable<ReadClienteDto> GetClientes()
     {
         return _mapper.Map<List<ReadClienteDto>>(_context.Clientes.ToList());
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetClientePorId(int id)
+    {
+        Cliente cliente = _context.Clientes.FirstOrDefault(cliente => cliente.Id == id);
+
+        if (cliente == null) return NotFound();
+
+        var clienteDto = _mapper.Map<ReadClienteDto>(cliente);
+
+        return Ok(clienteDto);
     }
 }
