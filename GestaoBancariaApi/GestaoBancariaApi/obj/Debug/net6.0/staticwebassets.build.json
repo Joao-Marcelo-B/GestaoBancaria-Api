@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "WR1L/PEGm5xhAsNjp6xKREWWP0udm8oE2dxjGdakJws=",
-  "Source": "GestaoBancariaApi",
-  "BasePath": "_content/GestaoBancariaApi",
+  "Hash": "QoxqVD3Z4KRt2528uyL/gBjAW5YLVDHmw/3vxUQegxE=",
+  "Source": "GestaoBancaria-UsuariosApi",
+  "BasePath": "_content/GestaoBancaria-UsuariosApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

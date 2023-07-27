@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z+hRoJQwg37N5ELNVMewvu8eQVUNqHmTWJyAsABqxGr0jEMy3jr1lHmDGty4yiZdqzPOMKtRy+D7WOiNd7X+bg==",
+  "dgSpecHash": "91A1Nr/+gYuIhXxMcCCLH+NYJa8ZVwiQ+Mm1YD6m2FPguQd4edbiI+pE1JuWdHcQ1zbEg/S3bNlq/40uSBEAMw==",
   "success": true,
-  "projectFilePath": "C:\\GitHub\\GestaoBancaria-Api\\GestaoBancariaApi\\GestaoBancariaApi\\GestaoBancariaApi.csproj",
+  "projectFilePath": "C:\\GitHub\\GestaoBancaria-Api\\GestaoBancariaApi\\GestaoBancariaApi\\GestaoBancaria-UsuariosApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\João Marcelo\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\João Marcelo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

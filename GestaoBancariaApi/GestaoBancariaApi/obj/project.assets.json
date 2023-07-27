@@ -1566,9 +1566,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\GestaoBancaria-Api\\GestaoBancariaApi\\GestaoBancariaApi\\GestaoBancariaApi.csproj",
-      "projectName": "GestaoBancariaApi",
-      "projectPath": "C:\\GitHub\\GestaoBancaria-Api\\GestaoBancariaApi\\GestaoBancariaApi\\GestaoBancariaApi.csproj",
+      "projectUniqueName": "C:\\GitHub\\GestaoBancaria-Api\\GestaoBancariaApi\\GestaoBancariaApi\\GestaoBancaria-UsuariosApi.csproj",
+      "projectName": "GestaoBancaria-UsuariosApi",
+      "projectPath": "C:\\GitHub\\GestaoBancaria-Api\\GestaoBancariaApi\\GestaoBancariaApi\\GestaoBancaria-UsuariosApi.csproj",
       "packagesPath": "C:\\Users\\João Marcelo\\.nuget\\packages\\",
       "outputPath": "C:\\GitHub\\GestaoBancaria-Api\\GestaoBancariaApi\\GestaoBancariaApi\\obj\\",
       "projectStyle": "PackageReference",

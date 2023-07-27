@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GestaoBancaria-UsuariosApi.props" />
+</Project>

@@ -1,3 +1,4 @@
+using Data;
 using GestaoBancariaApi.Data;
 using GestaoBancariaApi.Models;
 using GestaoBancariaApi.Services;
@@ -8,14 +9,25 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-string connectionString = builder.Configuration
+string connUserString = builder.Configuration
+    .GetConnectionString("UsuarioConnection");
+
+string connClienteString = builder.Configuration
     .GetConnectionString("ClienteConnection");
+
 
 builder.Services.AddDbContext<UsuarioDbContext>
     (opts =>
     {
-        opts.UseMySql(connectionString,
-            ServerVersion.AutoDetect(connectionString));
+        opts.UseMySql(connUserString,
+            ServerVersion.AutoDetect(connUserString));
+    });
+
+builder.Services.AddDbContext<ClienteContext>
+    (opts =>
+    {
+        opts.UseMySql(connClienteString,
+            ServerVersion.AutoDetect(connClienteString));
     });
 
 builder.Services

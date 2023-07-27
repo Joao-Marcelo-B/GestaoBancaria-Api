@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Data;
+using GestaoBancaria.Models;
 using GestaoBancariaApi.Data;
 using GestaoBancariaApi.Data.Dtos;
 using GestaoBancariaApi.Models;
@@ -12,16 +14,29 @@ namespace GestaoBancariaApi.Controllers;
 [Route("[controller]")]
 public class UsuarioController : ControllerBase
 {
+
     private UsuarioService _userService;
-    public UsuarioController(UsuarioService user)
+    private IMapper _mapper;
+    private ClienteContext _context;
+    public UsuarioController(UsuarioService user, IMapper mapper, ClienteContext context)
     {
         _userService = user;
+        _mapper = mapper;
+        _context = context;
     }
 
     [HttpPost("cadastro")]
-    public async Task<IActionResult> CadastrarCliente([FromBody] CreateUsuarioDto dto)
+    public async Task<IActionResult> CadastrarCliente
+        ([FromBody] CreateUsuarioDto dto)
     {
+        Cliente cliente = _mapper.Map<Cliente>(dto);
+
+        _context.Add(cliente);
+
         await _userService.Cadastra(dto);
+
+        _context.SaveChanges();
+
         return Ok("Usuário cadastrado!");
     }
 
