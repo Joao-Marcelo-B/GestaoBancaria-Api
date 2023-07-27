@@ -2,6 +2,7 @@
 using GestaoBancariaApi.Data;
 using GestaoBancariaApi.Data.Dtos;
 using GestaoBancariaApi.Models;
+using GestaoBancariaApi.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,26 +12,24 @@ namespace GestaoBancariaApi.Controllers;
 [Route("[controller]")]
 public class UsuarioController : ControllerBase
 {
-    private IMapper _mapper;
-    private UsuarioDbContext _context;
-    private UserManager<Usuario> _userManager;
-    public UsuarioController(IMapper mapper, UsuarioDbContext context = null, UserManager<Usuario> userManager = null)
+    private UsuarioService _userService;
+    public UsuarioController(UsuarioService user)
     {
-        _mapper = mapper;
-        _context = context;
-        _userManager = userManager;
+        _userService = user;
     }
 
     [HttpPost("cadastro")]
     public async Task<IActionResult> CadastrarCliente([FromBody] CreateUsuarioDto dto)
     {
-        var cliente = _mapper.Map<Usuario>(dto);
-        IdentityResult resultado = await _userManager.CreateAsync(cliente, dto.Password);
+        await _userService.Cadastra(dto);
+        return Ok("Usuário cadastrado!");
+    }
 
-        if(resultado.Succeeded)
-        {
-            return Ok("Cliente cadastrado com sucesso!");
-        }
-        throw new ApplicationException("Falha ao cadastrar cliente!");
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginUsuarioDto dto)
+    {
+        await _userService.Login(dto);
+
+        return Ok("Usuário autenticado com sucesso!");
     }
 }
