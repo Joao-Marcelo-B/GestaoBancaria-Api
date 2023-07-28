@@ -9,5 +9,6 @@ public class MovimentacoesProfile : Profile
     public MovimentacoesProfile()
     {
         CreateMap<CreateMovimentacoesDto, Movimentacoes>();
+        CreateMap<Movimentacoes, ReadMovimentacoesDto>();
     }
 }

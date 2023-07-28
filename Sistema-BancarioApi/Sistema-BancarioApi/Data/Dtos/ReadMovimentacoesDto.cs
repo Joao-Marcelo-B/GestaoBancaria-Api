@@ -4,9 +4,10 @@ namespace Sistema_BancarioApi.Data.Dtos;
 
 public class ReadMovimentacoesDto
 {
-    public int OrigemContaId { get; set; }
-    public int DestinoContaId { get; set; }
+    public int Id { get; set; }
+    public string OrigemNumConta { get; set; }
+    public string DestinoNumConta { get; set; }
     public string Tipo { get; set; }
-    public DataType DataMovimentacao { get; set; }
+    public DateTime DataMovimentacao { get; set; }
     public double ValorMovimentado { get; set; }
 }

@@ -8,13 +8,13 @@ public class Movimentacoes
     [Required]
     public int Id { get; set; }
     [Required]
-    public int OrigemContaId { get; set; }
+    public string OrigemNumConta { get; set; }
     [Required]
-    public int DestinoContaId { get; set; }
+    public string DestinoNumConta { get; set; }
     [Required]
     public string Tipo { get; set; }
     [Required]
-    public DataType DataMovimentacao { get; set; }
+    public DateTime DataMovimentacao { get; set; }
     [Required]
     public double ValorMovimentado { get; set; }
 }

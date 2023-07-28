@@ -67,9 +67,46 @@ public class ContaController : ControllerBase
         return Ok(contaDto);
     }
 
-    //[HttpPost]
-    //public IActionResult Transferir([FromBody]TranferenciaDto dto)
-    //{
+    [HttpPut("transferir")]
+    public IActionResult Transferir([FromBody] CreateMovimentacoesDto dto)
+    {
+        Conta contaOrigem = _context.Contas.FirstOrDefault
+            (conta => conta.NumeroConta == dto.OrigemNumConta);
 
-    //}
+        Conta contaDestino = _context.Contas.FirstOrDefault(conta => conta.NumeroConta == dto.DestinoNumConta);
+
+        if ((contaOrigem.Saldo - dto.ValorMovimentado) >= 0)
+        {
+            contaOrigem.Saldo -= dto.ValorMovimentado;
+            contaDestino.Saldo += dto.ValorMovimentado;
+
+            var updateContaOrigem = _mapper.Map<Conta>(contaOrigem);
+            var updateContaDestino = _mapper.Map<Conta>(contaDestino);
+            Movimentacoes mov = _mapper.Map<Movimentacoes>(dto);
+            _context.Add(mov);
+            _context.SaveChanges();
+
+            var readMov = _mapper.Map<ReadMovimentacoesDto>(mov);
+
+            return Ok(readMov);
+        }
+        return NotFound();
+    }
+
+    [HttpGet("extrato/{numConta}")]
+    public IEnumerable<ReadMovimentacoesDto> Extrato(string numConta)
+    {
+        var resultado = _mapper.Map<List<ReadMovimentacoesDto>>(_context.Movimentacoes
+            .Where(mov => mov.DestinoNumConta == numConta || mov.OrigemNumConta == numConta).ToList());
+
+        foreach(var item in resultado)
+        {
+            if(item.OrigemNumConta == numConta)
+            {
+                item.ValorMovimentado *= -1;
+            }
+        }
+
+        return resultado;
+    }
 }
