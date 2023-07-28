@@ -1,4 +1,4 @@
-﻿namespace Sistema_BancarioApi.Managers;
+﻿namespace Sistema_BancarioApi.Data.Dtos;
 
 public class GetSaldoDto
 {

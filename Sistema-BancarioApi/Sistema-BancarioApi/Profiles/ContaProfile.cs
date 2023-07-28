@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Sistema_BancarioApi.Data.Dtos;
-using Sistema_BancarioApi.Managers;
 using Sistema_BancarioApi.Models;
 
 namespace Sistema_BancarioApi.Profiles;
