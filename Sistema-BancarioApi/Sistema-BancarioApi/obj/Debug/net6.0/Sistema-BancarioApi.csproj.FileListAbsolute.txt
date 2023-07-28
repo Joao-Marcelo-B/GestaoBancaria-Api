@@ -60,3 +60,5 @@ C:\GitHub\GestaoBancaria-Api\Sistema-BancarioApi\Sistema-BancarioApi\bin\Debug\n
 C:\GitHub\GestaoBancaria-Api\Sistema-BancarioApi\Sistema-BancarioApi\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\GitHub\GestaoBancaria-Api\Sistema-BancarioApi\Sistema-BancarioApi\bin\Debug\net6.0\System.Text.Json.dll
 C:\GitHub\GestaoBancaria-Api\Sistema-BancarioApi\Sistema-BancarioApi\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\GitHub\GestaoBancaria-Api\Sistema-BancarioApi\Sistema-BancarioApi\bin\Debug\net6.0\Sistema-BancarioApi.xml
+C:\GitHub\GestaoBancaria-Api\Sistema-BancarioApi\Sistema-BancarioApi\obj\Debug\net6.0\Sistema-BancarioApi.xml

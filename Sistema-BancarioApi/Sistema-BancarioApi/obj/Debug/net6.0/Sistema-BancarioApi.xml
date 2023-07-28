@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sistema-BancarioApi</name>
+    </assembly>
+    <members>
+        <member name="M:Sistema_BancarioApi.Controllers.ContaController.GetSaldo(Sistema_BancarioApi.Data.Dtos.GetSaldoDto)">
+            <summary>
+                Recupera o saldo da conta desejada
+            </summary>
+            <param name="dto">Parâmetro a ser passado pelo corpo da requisição contendo o número da conta e o digito verificador</param>
+            <returns>IActionResult</returns>
+            <response code="200">Caso a busca seja realizada com sucesso</response>
+        </member>
+        <member name="M:Sistema_BancarioApi.Controllers.ContaController.Transferir(Sistema_BancarioApi.Data.Dtos.CreateMovimentacoesDto)">
+            <summary>
+                Método para transferir valores entre contas
+            </summary>
+            <param name="dto">Esse parâmetro contém informações que relacionam as duas contas para transferências</param>
+            <returns>IActionResult</returns>
+            <response code="200">Caso a atualização seja realizada com sucesso</response>
+        </member>
+        <member name="M:Sistema_BancarioApi.Controllers.ContaController.Extrato(System.String)">
+            <summary>
+                Gera o Extrato da conta que foi passada como parâmetro
+            </summary>
+            <param name="numConta">Parâmetro para busca do extrato da conta desejada</param>
+            <returns>IEnurable</returns>
+            <response code="200">Caso a busca seja realizada com sucesso</response>
+        </member>
+        <member name="T:Sistema_BancarioApi.Migrations.CriandoBancodeDados">
+            <inheritdoc />
+        </member>
+        <member name="M:Sistema_BancarioApi.Migrations.CriandoBancodeDados.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sistema_BancarioApi.Migrations.CriandoBancodeDados.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sistema_BancarioApi.Migrations.CriandoBancodeDados.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

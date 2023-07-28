@@ -52,7 +52,15 @@ public class ContaController : ControllerBase
         return Ok(contaDto);
     }
 
+
+    /// <summary>
+    ///     Recupera o saldo da conta desejada
+    /// </summary>
+    /// <param name="dto">Parâmetro a ser passado pelo corpo da requisição contendo o número da conta e o digito verificador</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="200">Caso a busca seja realizada com sucesso</response>
     [HttpGet("saldo")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult GetSaldo([FromBody]GetSaldoDto dto)
     {
         Conta conta = _context.Contas.FirstOrDefault
@@ -66,7 +74,14 @@ public class ContaController : ControllerBase
         return Ok(contaDto);
     }
 
+    /// <summary>
+    ///     Método para transferir valores entre contas
+    /// </summary>
+    /// <param name="dto">Esse parâmetro contém informações que relacionam as duas contas para transferências</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="200">Caso a atualização seja realizada com sucesso</response>
     [HttpPut("transferir")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult Transferir([FromBody] CreateMovimentacoesDto dto)
     {
         Conta contaOrigem = _context.Contas.FirstOrDefault
@@ -92,7 +107,14 @@ public class ContaController : ControllerBase
         return NotFound();
     }
 
+    /// <summary>
+    ///     Gera o Extrato da conta pelo número da conta que é passado como parâmetro
+    /// </summary>
+    /// <param name="numConta">Parâmetro para busca do extrato da conta desejada</param>
+    /// <returns>IEnurable</returns>
+    /// <response code="200">Caso a busca seja realizada com sucesso</response>
     [HttpGet("extrato/{numConta}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public IEnumerable<ReadMovimentacoesDto> Extrato(string numConta)
     {
         var resultado = _mapper.Map<List<ReadMovimentacoesDto>>(_context.Movimentacoes
