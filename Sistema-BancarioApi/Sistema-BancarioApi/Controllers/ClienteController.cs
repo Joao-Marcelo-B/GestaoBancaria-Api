@@ -20,9 +20,11 @@ public class ClienteController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<ReadClienteDto> GetClientes()
+    public IEnumerable<ReadClienteDto> GetClientes
+        ([FromQuery] int skip = 0,[FromQuery]int take = 50)
     {
-        return _mapper.Map<List<ReadClienteDto>>(_context.Clientes.ToList());
+        return _mapper.Map<List<ReadClienteDto>>
+            (_context.Clientes.Skip(skip).Take(take).ToList());
     }
 
     [HttpGet("{id}")]

@@ -4,6 +4,31 @@
         <name>Sistema-BancarioApi</name>
     </assembly>
     <members>
+        <member name="M:Sistema_BancarioApi.Controllers.ContaController.GerarConta(Sistema_BancarioApi.Data.Dtos.CreateContaDto)">
+            <summary>
+                Gera uma conta aleatória para um cliente previamente cadastrado no sistema
+            </summary>
+            <param name="dto">Parâmetro a ser passado pelo corpo da requisição contendo o ClienteId</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso a criação seja realizada com sucesso</response>
+        </member>
+        <member name="M:Sistema_BancarioApi.Controllers.ContaController.GetContas(System.Int32,System.Int32)">
+            <summary>
+                Recupera as contas de acordo com os parâmetros skip e take
+            </summary>
+            <param name="skip">Pula a quantidade de objetos informado</param>
+            <param name="take">Pega a quantidade de objetos informado</param>
+            <returns>IEnumerable</returns>
+            <response code="200">Caso seja realizado com sucesso</response>
+        </member>
+        <member name="M:Sistema_BancarioApi.Controllers.ContaController.GetContaPorId(System.Int32)">
+            <summary>
+                Recupera uma conta pelo Id
+            </summary>
+            <param name="id">ID a ser passado para busca</param>
+            <returns>IActionResult</returns>
+            <response code="200">Caso a busca seja realizada com sucesso</response>
+        </member>
         <member name="M:Sistema_BancarioApi.Controllers.ContaController.GetSaldo(Sistema_BancarioApi.Data.Dtos.GetSaldoDto)">
             <summary>
                 Recupera o saldo da conta desejada
@@ -20,9 +45,9 @@
             <returns>IActionResult</returns>
             <response code="200">Caso a atualização seja realizada com sucesso</response>
         </member>
-        <member name="M:Sistema_BancarioApi.Controllers.ContaController.Extrato(System.String)">
+        <member name="M:Sistema_BancarioApi.Controllers.ContaController.Extrato(Sistema_BancarioApi.Data.Dtos.GetExtratoDto)">
             <summary>
-                Gera o Extrato da conta que foi passada como parâmetro
+                Gera o Extrato da conta pelo número da conta que é passado como parâmetro
             </summary>
             <param name="numConta">Parâmetro para busca do extrato da conta desejada</param>
             <returns>IEnurable</returns>
